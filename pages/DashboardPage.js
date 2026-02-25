@@ -1,12 +1,16 @@
+const dashboardPO = require('../pageObjects/DashboardPageObject.json');
+
 class DashboardPage {
   constructor(page) {
+    const sel = dashboardPO.selectors;
+    
     this.page = page;
-    this.dashboardHeading = page.getByRole('heading', { name: 'Dashboard' });
-    this.pimMenuItem = page.getByRole('link', { name: 'PIM' });
+    this.dashboardHeading = page.getByRole(sel.dashboardHeading.role, { name: sel.dashboardHeading.name });
+    this.pimMenuItem      = page.getByRole(sel.pimMenuItem.role,      { name: sel.pimMenuItem.name      });
   }
 
   async waitForDashboard() {
-    await this.dashboardHeading.waitFor({ state: 'visible', timeout: 30000 });
+    await this.dashboardHeading.waitFor({ state: 'visible', timeout: dashboardPO.timeouts.heading });
     await this.page.waitForLoadState('networkidle');
   }
 

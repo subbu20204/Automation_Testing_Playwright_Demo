@@ -1,20 +1,25 @@
+const loginPO = require('../pageObjects/LoginPageObject.json');
+
 class LoginPage {
   constructor(page) {
+    const sel = loginPO.selectors;
+    
     this.page = page;
-    this.usernameInput = page.getByRole('textbox', { name: 'Username' });
-    this.passwordInput = page.getByRole('textbox', { name: 'Password' });
-    this.loginButton = page.getByRole('button', { name: 'Login' });
+    this.usernameInput = page.getByRole(sel.usernameInput.role, { name: sel.usernameInput.name });
+    this.passwordInput = page.getByRole(sel.passwordInput.role, { name: sel.passwordInput.name });
+    this.loginButton   = page.getByRole(sel.loginButton.role,   { name: sel.loginButton.name   });
   }
 
   async navigate() {
-    await this.page.goto('/web/index.php/auth/login');
+    await this.page.goto(loginPO.url);
     await this.page.waitForLoadState('networkidle');
   }
 
   async login(username, password, screenshotPath) {
-    await this.usernameInput.waitFor({ state: 'visible', timeout: 30000 });
-    await this.passwordInput.waitFor({ state: 'visible', timeout: 30000 });
-    await this.loginButton.waitFor({ state: 'visible', timeout: 30000 });
+    const { element: timeout } = loginPO.timeouts;
+    await this.usernameInput.waitFor({ state: 'visible', timeout });
+    await this.passwordInput.waitFor({ state: 'visible', timeout });
+    await this.loginButton.waitFor({   state: 'visible', timeout });
     await this.usernameInput.fill(username);
     await this.passwordInput.fill(password);
     if (screenshotPath) {

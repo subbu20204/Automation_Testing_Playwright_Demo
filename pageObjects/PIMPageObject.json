@@ -1,0 +1,32 @@
+{
+  "selectors": {
+    "employeeListHeading":    { "role": "heading", "name": "Employee Information" },
+    "addEmployeeTab":         { "role": "link",    "name": "Add Employee"         },
+    "addEmployeeHeading":     { "role": "heading", "name": "Add Employee"         },
+    "firstNameInput":         { "role": "textbox", "name": "First Name"           },
+    "middleNameInput":        { "role": "textbox", "name": "Middle Name"          },
+    "lastNameInput":          { "role": "textbox", "name": "Last Name"            },
+    "employeeIdInput":        { "locator": "input.oxd-input",        "nth": 4    },
+    "saveButton":             { "role": "button",  "name": "Save"                },
+    "successToast":           ".oxd-toast--success",
+    "employeeListTab":        { "role": "link",    "name": "Employee List"        },
+    "searchEmployeeIdInput":  { "locator": "div.oxd-table-filter", "role": "textbox", "nth": 1 },
+    "searchButton":           { "role": "button",  "name": "Search"              },
+    "tableBody":              ".oxd-table-body",
+    "tableRow":               ".oxd-table-row",
+    "tableCell":              ".oxd-table-cell"
+  },
+  "urls": {
+    "employeeList": "**/pim/viewEmployeeList**",
+    "addEmployee":  "**/pim/addEmployee**"
+  },
+  "timeouts": {
+    "url":          30000,
+    "heading":      20000,
+    "element":      15000,
+    "search":       20000,
+    "toastVisible": 30000,
+    "toastHidden":  15000,
+    "row":          15000
+  }
+}
