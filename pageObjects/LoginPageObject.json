@@ -2,7 +2,7 @@
   "selectors": {
     "usernameInput": { "role": "textbox", "name": "Username" },
     "passwordInput": { "role": "textbox", "name": "Password" },
-    "loginButton":   { "role": "button",  "name": "Login"    }
+    "loginButton": { "role": "button", "name": "Login" }
   },
   "url": "/web/index.php/auth/login",
   "timeouts": {

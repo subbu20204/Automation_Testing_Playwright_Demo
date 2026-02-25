@@ -1,7 +1,7 @@
 {
   "selectors": {
     "dashboardHeading": { "role": "heading", "name": "Dashboard" },
-    "pimMenuItem":      { "role": "link",    "name": "PIM"       }
+    "pimMenuItem": { "role": "link", "name": "PIM" }
   },
   "timeouts": {
     "heading": 30000
